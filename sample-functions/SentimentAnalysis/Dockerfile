@@ -8,7 +8,7 @@ RUN pip install textblob && \
 COPY --from=watchdog /fwatchdog /usr/bin/fwatchdog
 RUN chmod +x /usr/bin/fwatchdog
 
-RUN addgroup -g 1000 -S app && adduser -u 1000 -S app -G app
+RUN addgroup --gid 1000 --system app && adduser --uid 1000 --system app --ingroup app
 USER 1000
 
 WORKDIR /home/app
